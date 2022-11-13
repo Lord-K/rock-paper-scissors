@@ -1,4 +1,5 @@
-let options = ['rock', 'paper', 'scissors'];
+const options = ['rock', 'paper', 'scissors']
+
 
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * options.length);
@@ -7,34 +8,33 @@ function getComputerChoice() {
 
 }
 
+function yourChoice() {
+    let choice = prompt('type rock, paper or scissors').toLowerCase();
+    while(!(choice == 'paper' || choice == 'rock' || choice == 
+'scissors')) {
+        choice = prompt('type rock, paper or scissors');
+    }
+    return choice;
+}
+
+    
 function playRound() {
-    let playerSelection = prompt('Rock, Paper or Scissors').toLowerCase();
+    let playerSelection = yourChoice();
     let computerSelection = getComputerChoice();
-if(playerSelection === computerSelection) {
-    return 'It is a draw!';
-} else if(playerSelection == 'paper' && computerSelection == 'rock') {
-    return 'You win!';
-} else if(playerSelection == 'paper' && computerSelection =='scissors') {
-    return 'Computer wins!';
-} else if(playerSelection == 'rock' && computerSelection == 'scissors') {
-    return 'You win!';
-} else if(playerSelection =='rock' && computerSelection == 'paper') {
-    return 'Computer wins!';
-} else if(playerSelection == 'scissors' && computerSelection == 'paper') {
-    return 'You win!';
-} else if(playerSelection == 'scissors' && computerSelection == 'rock') {
-    return 'Computer wins!';
-}else {
-    return 'Not a valid value'
-}
-}
+    if(playerSelection === computerSelection) {
+        winner.push('Tie');
+        return 'It is a draw!';
+    } else if(playerSelection == 'paper' && computerSelection == 'rock' ||
+    playerSelection == 'rock' && computerSelection == 'scissors' ||
+    playerSelection == 'scissors' && computerSelection == 'paper') {
+        winner.push('You');
+        return 'You win!';
+    } else {
+        winner.push('Computer');
+        return 'Computer wins'
+    }
+    }
 
-function log() {
-    let pcCount = 0;
-    let youCount = 0;
-
-
-}
 
 function gameOn() {
     for(let i = 1; i < 6; i++) {
@@ -42,4 +42,5 @@ function gameOn() {
 
     };
 }
-gameOn();
+
+
