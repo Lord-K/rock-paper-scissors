@@ -22,15 +22,12 @@ function playRound() {
     let playerSelection = yourChoice();
     let computerSelection = getComputerChoice();
     if(playerSelection === computerSelection) {
-        winner.push('Tie');
         return 'It is a draw!';
     } else if(playerSelection == 'paper' && computerSelection == 'rock' ||
     playerSelection == 'rock' && computerSelection == 'scissors' ||
     playerSelection == 'scissors' && computerSelection == 'paper') {
-        winner.push('You');
         return 'You win!';
     } else {
-        winner.push('Computer');
         return 'Computer wins'
     }
     }
