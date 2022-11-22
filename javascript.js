@@ -26,7 +26,7 @@ function playRound() {
     let computerSelection = getComputerChoice();
     if(playerSelection === computerSelection) {
         tie += 1;
-        return 'It is a draw!';
+        return 'Tie';
     } else if(playerSelection == 'paper' && computerSelection == 'rock' ||
     playerSelection == 'rock' && computerSelection == 'scissors' ||
     playerSelection == 'scissors' && computerSelection == 'paper') {
@@ -49,7 +49,7 @@ function winner(pcScore, tie, youScore) {
     }else if(youScore > tie && youScore > pcScore) {
         console.log('Congrats, you are the winner');
     }else {
-        console.log('There are no winners');
+        console.log('Tie, no winners');
     }
 }
 
@@ -60,7 +60,7 @@ function refresh() {
 
 function gameOn() {
     for(let i = 1; i < 6; i++) {
-     console.log(`Round ${i}` + " " + playRound(i));
+     console.log(`Round ${i}:` + " " + playRound(i));
      logScore(pcScore, tie, youScore);
      console.log('----------------');   
 
@@ -71,14 +71,14 @@ function gameOn() {
 
 
  function playAgain() {
-    let play = prompt('Play? yes or no').toLowerCase();
-    if(play == 'yes') {
-        refresh();
-    }else if(play == 'no') {
-        alert('See you');
-        window.location.reload();
-    }else {
-        play = prompt('Play? yes or no'); 
+    let play = prompt('Play Again? yes or no');
+    while(play == null || !(play == 'yes' || play == 'no')) {
+        play = prompt('Play Again? yes or no'); 
+        play = play.toLowerCase();
     }
-       }
+    window.location.reload();
+}
+
+    
+
     
