@@ -24,6 +24,8 @@ function yourChoice() {
 function playRound() {
     let playerSelection = yourChoice();
     let computerSelection = getComputerChoice();
+    console.log(`Player: ${playerSelection}`);
+    console.log(`Computer: ${computerSelection}`);
     if(playerSelection === computerSelection) {
         tie += 1;
         return 'Tie';
@@ -45,9 +47,9 @@ function logScore(pcScore, tie, youScore) {
 
 function winner(pcScore, tie, youScore) {
     if(pcScore > tie && pcScore > youScore) {
-        console.log('You lost');
+        console.log('You lost :( ');
     }else if(youScore > tie && youScore > pcScore) {
-        console.log('Congrats, you are the winner');
+        console.log('Congrats, you are the winner :D ');
     }else {
         console.log('Tie, no winners');
     }
